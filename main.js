@@ -57,7 +57,7 @@ const comprarProductos = () => {
             seguirComprando = true
         }
 
-        subtotal += precio * cantidad
+        subtotal = precio * cantidad
         alert("El total sería de: $"+subtotal)
         seguirComprando = confirm("¿Desea ordenar algo más?")
 
