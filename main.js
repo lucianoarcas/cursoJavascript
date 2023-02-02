@@ -34,8 +34,7 @@ const comprarProductos = () => {
                     alert("algún dato es incorrecto, por favor ingresar cuatro quesos o especial")
                     tipoPizza = prompt("las pizzas disponibles son: cuatro quesos y especial")
             }
-
-            subtotalPizza = precioPizza * cantidad
+            subtotalPizza += precioPizza * cantidad
             alert("el total de sus pizzas sería: $" + subtotalPizza)
             seguirComprando = confirm("¿Desea ordenar algo más?")
 
@@ -63,7 +62,7 @@ const comprarProductos = () => {
                     alert("algún dato es incorrecto, por favor ingresar carne o pollo")
                     tipoEmpanada = prompt("las variedades disponibles son: carne o pollo")
             }
-            subtotalEmpanada = precioEmpa * cantEmpa
+            subtotalEmpanada += precioEmpa * cantEmpa
             alert("El total de sus empanadas sería: $" + subtotalEmpanada)
             seguirComprando = confirm("¿Desea ordenar algo más?")
             
