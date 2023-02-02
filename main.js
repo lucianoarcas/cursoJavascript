@@ -13,14 +13,17 @@ const comprarProductos = () => {
     
     do {
         producto = prompt("Elija que desea ordenar. ¿Pizza o Empanada?")
+        producto = producto.toLowerCase()
 
         if (producto === "pizza") {
             let tipoPizza = prompt("las pizzas disponibles son: cuatro quesos $1200 y especial $1300")
+            tipoPizza = tipoPizza.toLowerCase()
 
             switch (tipoPizza) {
                 case "cuatro quesos":
                     precioPizza = 1200
                     cantidad = parseInt(prompt("¿cuantas pizzas cuatro quesos pedirá?"))
+                    
                 break;
             
                 case "especial": 
@@ -44,7 +47,8 @@ const comprarProductos = () => {
 
         else if (producto === "empanada") {
             let tipoEmpanada = prompt("las variedades disponibles son: carne ($220 la unidad) o pollo ($200 la unidad)")
-
+            tipoEmpanada = tipoEmpanada.toLowerCase()
+            
             switch (tipoEmpanada) {
                 case "carne":
                     precioEmpa = 220
