@@ -8,8 +8,6 @@ const comprarProductos = () => {
     let subtotalEmpanada = 0
     let total = 0
     let seguirComprando = false
-
-
     
     do {
         producto = prompt("Elija que desea ordenar. ¿Pizza o Empanada?")
@@ -35,20 +33,18 @@ const comprarProductos = () => {
                     precioPizza = 0
                     cantidad = 0
                     alert("algún dato es incorrecto, por favor ingresar cuatro quesos o especial")
-                    tipoPizza = prompt("las pizzas disponibles son: cuatro quesos y especial")
+                    tipoPizza = prompt("las pizzas disponibles son: cuatro quesos $1200 y especial $1300")
             }
             subtotalPizza += precioPizza * cantidad
             alert("el total de sus pizzas sería: $" + subtotalPizza)
             seguirComprando = confirm("¿Desea ordenar algo más?")
 
-        }
-
-        
+        }        
 
         else if (producto === "empanada") {
             let tipoEmpanada = prompt("las variedades disponibles son: carne ($220 la unidad) o pollo ($200 la unidad)")
             tipoEmpanada = tipoEmpanada.toLowerCase()
-            
+
             switch (tipoEmpanada) {
                 case "carne":
                     precioEmpa = 220
@@ -64,7 +60,7 @@ const comprarProductos = () => {
                     precioEmpa = 0
                     cantEmpa = 0
                     alert("algún dato es incorrecto, por favor ingresar carne o pollo")
-                    tipoEmpanada = prompt("las variedades disponibles son: carne o pollo")
+                    tipoEmpanada = prompt("las variedades disponibles son: carne ($220 la unidad) o pollo ($200 la unidad)")
             }
             subtotalEmpanada += precioEmpa * cantEmpa
             alert("El total de sus empanadas sería: $" + subtotalEmpanada)
