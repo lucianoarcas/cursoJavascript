@@ -1,6 +1,8 @@
 const comprarProductos = () => {
-    let producto = ""
+    let producto = 0
     let cantEmpa = 0
+    let tipoPizza = ""
+    let tipoEmpanada = ""
     let cantidad = 0
     let precioEmpa = 0
     let precioPizza = 0
@@ -10,73 +12,59 @@ const comprarProductos = () => {
     let seguirComprando = false
     
     do {
-        producto = prompt("Elija que desea ordenar. ¿Pizza o Empanada?")
-        producto = producto.toLowerCase()
+        producto = parseInt(prompt("Elija que desea ordenar. '1' para Pizza o bien '2' para Empanadas"))
+        
+        switch (producto) {
 
-        if (producto === "pizza") {
-            let tipoPizza = prompt("las pizzas disponibles son: cuatro quesos $1200 y especial $1300")
-            tipoPizza = tipoPizza.toLowerCase()
+            case 1: 
 
-            switch (tipoPizza) {
-                case "cuatro quesos":
+                tipoPizza = parseInt(prompt("ingrese '1' para pizza cuatro quesos ($1000), o bien '2' para pizza especial ($1200)"))
+
+                if (tipoPizza === 1) {
+                    precioPizza = 1000
+                    cantidad = parseInt(prompt("¿cuantas pizza cuatro quesos desea ordenar?"))
+                } else if (tipoPizza === 2) {
                     precioPizza = 1200
-                    cantidad = parseInt(prompt("¿cuantas pizzas cuatro quesos pedirá?"))
-                    
-                break;
-            
-                case "especial": 
-                    precioPizza = 1300
-                    cantidad = parseInt(prompt("¿cuantas pizzas especiales pedirá?"))
-                break;
+                    cantidad = parseInt(prompt("cuantas pizza especial desea ordenar?"))
+                } else {
+                    alert("alguno de los datos ingresados es incorrecto; por favor elija '1' para pizza cuatro quesos o '2' para pizza especial") 
+                    return comprarProductos()             
+                }                     
+                subtotalPizza += cantidad * precioPizza
+                alert("el total de sus pizzas sería: $"+ subtotalPizza)
+                seguirComprando = confirm("desea sumar algo mas a su pedido?")
 
-                default:
-                    precioPizza = 0
-                    cantidad = 0
-                    alert("algún dato es incorrecto, por favor ingresar cuatro quesos o especial")
-                    tipoPizza = prompt("las pizzas disponibles son: cuatro quesos $1200 y especial $1300")
-            }
-            subtotalPizza += precioPizza * cantidad
-            alert("el total de sus pizzas sería: $" + subtotalPizza)
-            seguirComprando = confirm("¿Desea ordenar algo más?")
+            break;
+        
+            case 2:
 
-        }        
+                tipoEmpanada = parseInt(prompt("ingrese '1' para empanada de carne ($220), o bien '2' para empanada de pollo ($200)"))
 
-        else if (producto === "empanada") {
-            let tipoEmpanada = prompt("las variedades disponibles son: carne ($220 la unidad) o pollo ($200 la unidad)")
-            tipoEmpanada = tipoEmpanada.toLowerCase()
-
-            switch (tipoEmpanada) {
-                case "carne":
+                if (tipoEmpanada === 1) {
                     precioEmpa = 220
-                    cantEmpa = parseInt(prompt("¿cuantas empanadas de carne llevará?"))
-                break;
-            
-                case "pollo":
+                    cantEmpa = parseInt(prompt("¿cuantas empanadas de carne desea ordenar?"))            
+                } else if (tipoEmpanada === 2) {
                     precioEmpa = 200
-                    cantEmpa = parseInt(prompt("¿cuantas empanadas de pollo llevará?"))
-                break;
-                
-                default:
-                    precioEmpa = 0
-                    cantEmpa = 0
-                    alert("algún dato es incorrecto, por favor ingresar carne o pollo")
-                    tipoEmpanada = prompt("las variedades disponibles son: carne ($220 la unidad) o pollo ($200 la unidad)")
-            }
-            subtotalEmpanada += precioEmpa * cantEmpa
-            alert("El total de sus empanadas sería: $" + subtotalEmpanada)
-            seguirComprando = confirm("¿Desea ordenar algo más?")
-            
-        }else {
-            alert("alguno de los datos ingresados es incorrecto, por favor ingrese pizza o empanada")
-            seguirComprando = true
+                    cantEmpa = parseInt(prompt("¿cuantas empanadas de pollo desea ordenar?"))
+                } else {
+                    alert("alguno de los datos ingresados es incorrecto; por favor ingrese '1' para empanada de carne o '2' para empanada de pollo") 
+                    return comprarProductos() 
+                }
+                subtotalEmpanada += precioEmpa * cantEmpa
+                alert ("el total de sus empanadas sería: $"+ subtotalEmpanada)
+                seguirComprando = confirm("desea sumar algo mas a su pedido?")
+
+            break;
+
+            default:
+                alert("por favor, ingrese '1' para ordenar pizza; o bien '2' para pedir empanadas")
+                seguirComprando = true
+               
         }
-
-        total = subtotalEmpanada + subtotalPizza
-
-
     } while (seguirComprando);
 
-    alert("El total de su pedido sería de: $"+total)
+    total = subtotalEmpanada + subtotalPizza
+    alert("El total de su pedido sería de: $"+ total)
 
 };
 
