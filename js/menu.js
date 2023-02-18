@@ -60,7 +60,7 @@ const productos =
         tipo: "Hamburguesa",
         precio: 1000,
         cantidad: 0,
-        
+
     },
 
     {
@@ -69,8 +69,8 @@ const productos =
         tipo: "Hamburguesa",
         precio: 1200,
         cantidad: 0,
-        
     },
 
 
 ];
+
